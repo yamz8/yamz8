@@ -39,7 +39,7 @@ Naval himself has embraced this shift, co-founding AirChat, a voice-centric soci
 
 ## The Revival of Polymaths
 
-This brings us to a beautiful observation from my friend Adam Cohen-Hillel in his recent piece, ["The Revival of the Polymaths"](https://open.substack.com/pub/adamcohenhillel/p/the-revival-of-the-polymaths?r=6j2ins&utm_medium=ios). Adam argues that we're witnessing a renaissance of polymathic thinking—individuals who excel across multiple disciplines rather than drilling deep into single domains.
+This brings us to a beautiful observation that inspired this entire piece—my friend Adam Cohen-Hillel's writing on ["The Revival of the Polymaths"](https://essays.adamcohenhillel.com/p/the-revival-of-the-polymaths). Adam argues that we're witnessing a renaissance of polymathic thinking—individuals who excel across multiple disciplines rather than drilling deep into single domains.
 
 This isn't coincidental. As Adam points out, the most interesting problems of our time exist at the intersections of disciplines. Climate change requires understanding of physics, economics, psychology, and policy. AI safety demands expertise in computer science, philosophy, psychology, and ethics. Biotechnology advances through the fusion of biology, engineering, data science, and medicine.
 
