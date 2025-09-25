@@ -1,0 +1,94 @@
+---
+title: 'Introducing GAIT: An AI‑First Git'
+publishedAt: '2025-09-25'
+summary: 'GAIT is a fork of Git exploring what version control would look like if AI had been in the room on day one.'
+---
+
+# Introducing GAIT
+
+GAIT is a fork of Git that asks a simple question: what would version control look like if AI had been in the room on day one? The goal is not to replace Git overnight, but to explore an AI‑first vision that keeps Git’s proven core while rethinking developer experience, collaboration, and automation around intelligent tooling.
+
+Repository: <a href="https://github.com/yamz8/gait" target="_blank" rel="noopener noreferrer">github.com/yamz8/gait</a>
+
+
+
+# Why now
+
+Git has scaled from tiny scripts to the largest codebases on the planet. Meanwhile, AI has become a practical co‑developer, reviewer, and test generator. Yet most VCS concepts remain line‑diff, file‑centric, and human‑only. GAIT explores a world where version control is natively aware of intent, semantics, and automated agents.
+
+# Vision
+
+An AI‑first Git should:
+
+- Understand change at the level of intent, not just lines
+- Use AI to reduce toil (merges, reviews, docs) while increasing trust
+- Make provenance, policy, and safety first‑class
+- Remain compatible with Git workflows to ease adoption
+
+# Design principles
+
+- Intelligent by default: Assist with diffs, merges, reviews, and release notes—no copy‑pasting into external tools
+- Intent‑aware: Capture goals, constraints, and rationale alongside code; link commits to issues/specs/checks
+- Verifiable automation: Every AI action should be testable, explainable, and revertible
+- Privacy‑preserving: Local inference where possible; explicit redaction/consent when not
+- Git‑compatible: Interoperate with existing repos, remotes, and CLIs as far as possible
+
+# What changes vs. classic Git
+
+- Semantic diffs and reviews
+  - Show API changes, contract deltas, and behavior summaries alongside line diffs
+  - Explain risky areas, propose tests, and summarize architectural impact
+
+- AI‑assisted merges and conflict resolution
+  - Learn project‑specific patterns; propose safe resolutions with inline rationales and tests
+
+- Commit intent and structured metadata
+  - Capture “why” (issue, spec, acceptance criteria) and “what” (intent) in a machine‑readable form
+
+- Repository‑native search and knowledge
+  - Embed code and docs for repo‑local semantic search; keep embeddings versioned and diffable
+
+- Model‑sized artifacts as first‑class citizens
+  - Better handling of large binaries, model checkpoints, and dataset manifests with dedup and provenance
+
+- Trust, policy, and provenance
+  - Signed attestations for humans and agents; policy checks that combine static rules with AI verification
+
+# Early ideas and experiments
+
+These are areas we intend to prototype behind familiar commands and workflows:
+
+- `gait diff --semantic` shows API/class/function‑level changes with natural‑language summaries
+- `gait merge --assist` proposes conflict resolutions and companion tests; user approves or edits
+- `gait commit --intent` records structured intent/constraints; GAIT derives tests and checks
+- `gait search` performs hybrid semantic/regex search against versioned embeddings
+
+# Compatibility and migration
+
+GAIT begins as a fork to stay close to upstream while we validate ideas. The plan is to:
+
+- Maintain compatibility with common Git operations, remotes, and repository formats where feasible
+- Ship features behind opt‑in flags so teams can adopt incrementally
+- Contribute learnings upstream whenever it benefits the broader ecosystem
+
+# Roadmap (exploratory)
+
+- Milestone 1: Repo‑local semantic diff/review and AI‑assisted merge prototypes
+- Milestone 2: Structured commit intent and test generation; provenance metadata
+- Milestone 3: Policy‑aware automation (signed agent actions, audit trails)
+- Milestone 4: Scalable embeddings and search across large monorepos
+
+# How you can help
+
+- Try the ideas, file issues, and challenge assumptions
+- Share real‑world merge, review, and search pain points
+- Help design safe defaults and privacy‑first workflows
+
+Start here: <a href="https://github.com/yamz8/gait" target="_blank" rel="noopener noreferrer">GAIT repository</a>.
+
+# Closing
+
+Version control reshaped how we build software. GAIT explores how AI can reshape version control—keeping what works, and elevating what’s possible.
+
+Reference: [GAIT on GitHub](https://github.com/yamz8/gait)
+
