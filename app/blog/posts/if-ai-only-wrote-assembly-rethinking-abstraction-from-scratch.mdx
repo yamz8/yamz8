@@ -1,0 +1,100 @@
+---
+title: 'If AI Only Wrote Assembly: Rethinking Abstraction From Scratch'
+publishedAt: '2025-03-02'
+summary: 'If we restarted software from zero with AI at the metal, which abstractions would survive—and what should we change today?'
+---
+
+# Introduction
+
+Imagine we deleted every codebase on earth and asked an AI—restricted to producing only assembly—to rebuild our software stack. What would come back? Which abstractions would re‑emerge, which would disappear, and which would look entirely different?
+
+Humans built layers to optimize for our cognition: readability, portability, team coordination. AI optimizes differently: for verifiability, performance transparency, and search across immense design spaces. This essay explores what an AI‑first stack could look like and, more importantly, the practical lessons we can adopt today: write tighter specs, prefer domain‑specific <a href="https://en.wikipedia.org/wiki/Intermediate_representation" title="Intermediate Representation: a lower-level, compiler-friendly form that code is translated into before machine code" target="_blank" rel="noopener noreferrer">IRs</a> over monolithic languages, make costs visible, and co‑design software with hardware.
+
+# The early days of coding
+
+Early programming sat near the metal. We traded developer time for machine time: assembly gave performance and control, but scaling teams and products demanded higher‑level languages, standard libraries, type systems, and build tools. Abstractions emerged to compress recurring patterns and enable portability across architectures.
+
+The cost of these gains was opacity and overhead. Compilers, runtimes, and frameworks created layers between intent and execution. For humans, this is a net win. For a system with perfect recall and tireless search, the trade might be different.
+
+# The early days of AI
+
+Modern AI excels at:
+
+- Pattern search over vast spaces (e.g., instruction sequences, schedules, memory layouts)
+- Superoptimization of small, hot paths
+- Synthesis from constraints and examples
+- Learning cost models from data
+
+But it struggles with:
+
+- Ambiguous specifications and shifting requirements
+- Long‑horizon system design without intermediate feedback
+- Social context: maintainability, governance, team handoffs
+
+This mismatch suggests AI would invent layers that surface precise intent and stable constraints—then freely re‑optimize execution beneath them.
+
+# If we had ChatGPT then: what would AI build first?
+
+1) Formal specs and tests before code
+
+AI benefits from crisp goals. Expect contracts, properties, and invariants to lead the process. Rather than “write a parser,” the spec would define accepted grammars, error conditions, memory and latency budgets, and proof obligations. Code generation becomes a search bounded by verifiable constraints.
+
+2) Domain‑specific IRs and DSLs
+
+Instead of one general‑purpose language for everything, an AI would likely favor a small set of intent‑centric <a href="https://en.wikipedia.org/wiki/Domain-specific_language" title="Domain-Specific Language: a small language tailored to a problem domain" target="_blank" rel="noopener noreferrer">DSLs</a> (for parsing, linear algebra, streaming, consensus) that lower into shared intermediate representations. Separation of intent (what) from schedule (how) becomes explicit.
+
+3) Cost models at every layer
+
+Every transformation would be accompanied by an explicit model of time, memory, bandwidth, and energy. Hot paths become superoptimized; cold paths remain simple but correct. The system learns which schedules win on real hardware and updates policies automatically.
+
+4) Hardware/software co‑design loops
+
+With codegen at the metal, the boundary between <a href="https://en.wikipedia.org/wiki/Instruction_set_architecture" title="Instruction Set Architecture: the set of machine instructions a processor can execute" target="_blank" rel="noopener noreferrer">ISA</a>, <a href="https://en.wikipedia.org/wiki/Microcode" title="Microcode: low-level control layer implementing higher-level machine instructions inside the CPU" target="_blank" rel="noopener noreferrer">microcode</a>, and runtime blurs. An AI would iterate: propose an instruction, synthesize kernels that use it, evaluate end‑to‑end workload impact, and keep the parts that pay for themselves.
+
+# The present day: early signals
+
+We can already see the contours of this world:
+
+- <a href="https://en.wikipedia.org/wiki/LLVM" title="LLVM Intermediate Representation: a language-agnostic, typed, low-level code form used by the LLVM compiler framework" target="_blank" rel="noopener noreferrer">LLVM IR</a> as a lingua franca; <a href="https://en.wikipedia.org/wiki/EBPF" title="extended Berkeley Packet Filter: a safe, in-kernel programmable VM for networking/observability" target="_blank" rel="noopener noreferrer">eBPF</a> as safe, low‑level programmability
+- ML compilers (XLA, TVM, Glow) and auto‑tuned kernels
+- Superoptimizers and learned cost models
+- Verified toolchains and formal methods moving into production
+
+The shape is consistent: intent lowered into <a href="https://en.wikipedia.org/wiki/Intermediate_representation" title="Intermediate Representation: a lower-level, compiler-friendly form that code is translated into before machine code" target="_blank" rel="noopener noreferrer">IR</a>, schedules searched and verified, feedback loops tied to measurable costs.
+
+# Counterarguments and constraints
+
+There are good reasons not to collapse everything into assembly-level artifacts:
+
+- Humans still read and govern systems; comprehension matters
+- Interoperability and standards reduce systemic risk
+- Regulation, safety, and auditability require stable interfaces
+
+An AI‑native stack must meet these constraints without forfeiting performance and verifiability.
+
+# Practical lessons for today
+
+Adopt the spirit of an AI‑first stack without rewriting the world.
+
+## Checklist to pilot this quarter
+
+- Define crisp specifications for one critical subsystem (APIs, invariants, budgets)
+- Introduce a tiny DSL or schema for intent; keep the schedule separate
+- Add cost visibility: record time, memory, bandwidth for key paths
+- Auto‑generate tests and property checks with AI; fail closed
+- Superoptimize one hot loop or kernel; lock in measurable wins
+- Involve infra/hardware earlier; co‑design interfaces and budgets
+
+## A minimal example: intent vs schedule
+
+The point is not to ban high‑level languages; it is to make intent explicit and make schedules swappable under testable constraints.
+
+For example, a matrix multiply “intent” could live in a <a href="https://en.wikipedia.org/wiki/Domain-specific_language" title="Domain-Specific Language: a small language tailored to a problem domain" target="_blank" rel="noopener noreferrer">DSL</a> that compiles to an <a href="https://en.wikipedia.org/wiki/Intermediate_representation" title="Intermediate Representation: a lower-level, compiler-friendly form that code is translated into before machine code" target="_blank" rel="noopener noreferrer">IR</a>. The “schedule” chooses tiling, vectorization, and memory layout per device. AI explores schedules, verifies correctness, and keeps the fastest within constraints.
+
+# The future
+
+Expect toolchains that negotiate abstractions per workload: for each deployment, the system re‑derives schedules, regenerates kernels, and ships binaries proven equivalent to the spec. Runtimes self‑tune; proofs and benchmarks ship alongside artifacts. New roles emerge: spec engineers, abstraction curators, and cost modelers.
+
+# Conclusion
+
+If AI only wrote assembly, it would still rebuild abstractions—but around verifiability, cost, and search rather than human ergonomics. We do not need to erase our stack to benefit. Start small: pick one subsystem, write the spec tighter than feels comfortable, separate intent from schedule, make costs visible, and let AI search beneath the glass.
