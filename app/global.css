@@ -138,11 +138,9 @@ input[type='email'] {
   appearance: none;
 }
 
+/* Let MDX component control table layout; keep sensible defaults only */
 table {
-  display: block;
-  max-width: fit-content;
-  overflow-x: auto;
-  white-space: nowrap;
+  width: 100%;
 }
 
 .title {
