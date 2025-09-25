@@ -1,0 +1,120 @@
+---
+title: 'From MBA to MAA: Structuring an Agent‑Native Company'
+publishedAt: '2025-09-25'
+summary: 'Introducing the MAA — Master of Agent Administration — a practical playbook to design orgs, systems, and governance for autonomous and AI agents.'
+---
+
+# From MBA to MAA: Structuring an Agent‑Native Company
+
+We’ve had a century to perfect the MBA playbook for human‑only organizations. Now agents are joining the org chart. This post introduces a complementary lens: the MAA — Master of Agent Administration — a pragmatic way to organize teams, systems, and governance when autonomous and AI agents become first‑class colleagues.
+
+If MBA asks “How do humans run the business?”, MAA asks “How do humans and agents run the business together, safely, measurably, and profitably?”
+
+## What is MAA?
+
+MAA stands for Master of Agent Administration. It’s a set of principles and operating patterns for agent‑native companies:
+
+- Design for agents as durable actors with owners, identity, and scope
+- Treat prompts, tools, and policies as product, not glue
+- Make safety, observability, and provenance default‑on
+- Optimize for outcomes: cycle time, quality, cost, and trust
+
+## Why now
+
+Agents can already execute real, bounded workflows (support triage, data QA, marketing ops, basic engineering chores). The bottleneck is no longer raw capability; it’s organizational design. Without clear ownership, guardrails, and measurement, agents either create shadow automation or stall in pilots.
+
+## Agent‑Native Org: Roles and Responsibilities
+
+Start small, but name owners. A minimal RACI looks like this:
+
+- Agent Product Manager (APM): Defines problem, KPIs, data contracts, and rollout
+- Agent Reliability Engineer (ARE): Builds, tests, deploys; owns runtime, tracing, SLOs
+- Policy & Safety Lead (PSL): Designs safeguards, reviews incidents, handles approvals
+- Data Steward (DS): Ensures data quality, access, retention, and lineage
+- Domain Sponsor: Signs off on scope, budgets, and outcomes in the business unit
+
+## Architecture: The Four Layers
+
+Think in layers to avoid spaghetti:
+
+1. Intent and Policy: goals, constraints, compliance, approvals
+2. Planning and Reasoning: decomposition, tool selection, memory, critique
+3. Action and Tools: connectors, functions, RAG, transactions
+4. Observability and Control: tracing, metrics, cost, drift detection, human‑in‑the‑loop
+
+You wouldn’t let a new human hire ship prod without access rules, reviews, and dashboards. Don’t do it with agents.
+
+## Lifecycle: From Idea to Incident‑Free Ops
+
+1. Define the job: task boundaries, success metrics, failure modes
+2. Simulate: replay real data, adversarial prompts, and policy edge cases
+3. Pilot: gated scope, staged environments, kill‑switches, feedback loops
+4. Operate: SLOs, on‑call, budgets, continuous evaluation, drift alerts
+5. Improve: post‑incident reviews, dataset curation, tool hardening
+
+## Guardrails and Governance
+
+- Identity: stable IDs, signed actions, audit trails for humans and agents
+- Authorization: least‑privilege tokens, time‑boxed scopes, just‑in‑time elevation
+- Policy: allow/deny lists, redaction, content and action policies baked into prompts and tools
+- Approvals: human checkpoints for irreversible and costly operations
+- Provenance: attach intent, inputs, model/tool versions to every action
+
+## Metrics That Matter (beyond latency)
+
+- Task success rate and human‑override rate
+- Time‑to‑completion vs. human‑only baseline
+- Cost per successful task and per avoided error
+- Incident rate and mean time to restore (MTTR)
+- Data quality regressions and drift
+
+## A Starter Operating Model by Stage
+
+Early teams don’t need huge headcount — just clarity.
+
+### Stage 1: One Agent, One Team
+
+- 1 APM, 1 ARE (shared infra), 0.2 PSL, 0.2 DS, 1 Sponsor
+- Scope: one well‑bounded workflow with clear success metrics
+
+### Stage 2: Agent Portfolio
+
+- Central platform team (2–4 AREs) with shared tooling, tracing, and policy
+- Multiple APMs embedded with business units; PSL and DS as part‑time guilds
+
+### Stage 3: Agent‑Native Org
+
+- Formal Agent Platform (routing, evals, feature flags, cost management)
+- Policy as code, red‑team function, and agent on‑call rotation
+
+## Capability Map
+
+The table below is a simple MAA capability checklist to track maturity across layers.
+
+<Table data={{
+  headers: ['Layer','Capabilities','Primary Owner'],
+  rows: [
+    ['Intent & Policy','Goals, constraints, approvals','APM / PSL'],
+    ['Planning','Decomposition, tool choice, memory','ARE'],
+    ['Action & Tools','Connectors, RAG, transactions','ARE'],
+    ['Observability','Tracing, evals, cost, drift','ARE'],
+    ['Governance','Identity, authZ, provenance','PSL'],
+  ]
+}} />
+
+## Practical Tips
+
+- Start with one painful, repetitive workflow with clear guardrails
+- Use test fixtures and replays; never evaluate with anecdotes alone
+- Make every agent action explainable, revertible, and attributable
+- Separate data read from write; gate writes behind approvals and tests
+- Treat prompts, tools, and datasets as versioned artifacts
+
+## Closing: The MAA Mindset
+
+The MBA taught us to scale human organizations. The MAA helps us scale human‑agent organizations. Give agents identity, owners, scope, and SLOs; give humans control, transparency, and outcomes. Start small, measure honestly, and let results earn trust.
+
+## Get involved
+
+- Repo (seed; will move to the foundation): [yamz8/maa-foundation](https://github.com/yamz8/maa-foundation)
+- Feedback & ideas: <a href="https://github.com/yamz8/maa-foundation/issues/new" target="_blank" rel="noopener noreferrer">Open an issue</a>
