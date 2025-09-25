@@ -1,0 +1,129 @@
+---
+title: 'Introducing PupAI: An AI‑First Fork of Husky'
+publishedAt: '2025-05-14'
+summary: 'PupAI is a playful, AI‑first fork of Husky that turns Git hooks into intelligent workflows: parallel agent sessions, policy‑aware automation, and hook‑level AI actions you can verify and trust.'
+---
+
+# Introducing PupAI
+
+PupAI is a fork of Husky that asks: what if Git hooks were AI‑native from day one? It keeps Husky’s proven design—modern native hooks, fast startup, no runtime dependencies—while adding agent‑aware workflows, declarative policies, and built‑in affordances for parallel AI coding sessions.
+
+Name: PupAI — playful like “puppy,” but AI‑first.
+
+References:
+
+- Husky docs: <a href="https://typicode.github.io/husky/" target="_blank" rel="noopener noreferrer">typicode.github.io/husky</a>
+- Claude Code: parallel sessions with Git worktrees: <a href="https://docs.claude.com/en/docs/claude-code/common-workflows#run-parallel-claude-code-sessions-with-git-worktrees" target="_blank" rel="noopener noreferrer">docs.claude.com → Common workflows → Run parallel sessions</a>
+- Claude Code Hooks guide: <a href="https://docs.claude.com/en/docs/claude-code/hooks-guide" target="_blank" rel="noopener noreferrer">docs.claude.com → Hooks guide</a>
+
+# Why PupAI
+
+- Faster feedback loops: run agents on every commit/push to propose tests, summarize changes, and catch risky diffs before review.
+- AI where hooks already are: wire intelligence into `pre-commit`, `commit-msg`, `pre-push`, and custom hooks—no extra tooling glue.
+- Parallel by design: first‑class support for branch‑/worktree‑scoped AI sessions so long‑running refactors don’t collide.
+- Policy aware: make AI actions verifiable, signed, and auditable—treat agents like trusted teammates under policy.
+
+# What’s new vs. Husky
+
+PupAI starts from Husky’s native hooks approach and layers AI‑first capabilities:
+
+1) Agent hooks and routes
+
+- `pupai agent run --on pre-commit` to invoke a configured agent playbook (e.g., lint fixes, risk assessment, test suggestion)
+- `pupai agent summarize --scope staged` to generate commit summaries and CHANGELOG snippets
+- `pupai agent review --diff HEAD~1..HEAD` to annotate PR descriptions
+
+2) Worktree smarter defaults
+
+- Auto‑detect when running inside a Git worktree and use a separate cache, embeddings, and session state per worktree
+- Optional `--isolate` flag to prevent cross‑branch/model state bleed
+
+3) Hooks‑as‑policy
+
+- Declarative `pupai.policy.json` to define which hooks may run AI, required attestations, redaction rules, and max token/cost budgets
+- Signed hook outcomes (JSON attestations) attached to commits via notes or stored as build artifacts
+
+4) Observability and provenance
+
+- Emit structured logs for each AI action: prompt, model, cost, latency, and outcome
+- Link outcomes to files/lines and collect “rationales” as artifacts for review
+
+# Example workflows
+
+## Parallel agents with worktrees
+
+Inspired by the parallel session workflow, PupAI treats each worktree as an independent AI arena. Typical flow:
+
+1. `git worktree add ../feature-x -b feature/x`
+2. In the new worktree, `pnpm dlx pupai init` to set up hook scripts and `pupai.policy.json`
+3. Code normally; hooks trigger agents that are isolated to this worktree’s cache and embeddings
+4. When done, merge as usual; PupAI attaches agent attestations to commits
+
+Reference: <a href="https://docs.claude.com/en/docs/claude-code/common-workflows#run-parallel-claude-code-sessions-with-git-worktrees" target="_blank" rel="noopener noreferrer">parallel sessions with worktrees</a>.
+
+## AI‑aware commit message validation
+
+Combine classic `commit-msg` checks with AI summaries:
+
+```bash
+# .git/hooks/commit-msg (installed by PupAI)
+pupai commit check "$1" || exit 1
+pupai agent summarize --scope staged --output .git/pupai/summary.txt || true
+```
+
+This keeps strict validation but adds a machine‑generated summary for reviewers.
+
+## Pre‑push risk scan
+
+```bash
+# .git/hooks/pre-push
+pupai agent review --diff HEAD~3..HEAD --policy pupai.policy.json || true
+```
+
+Agents surface hotspots (security‑sensitive changes, missing tests) before the code leaves your machine.
+
+# Configuration sketch
+
+```json
+{
+  "$schema": "https://pupai.dev/schema/policy.json",
+  "allow": ["pre-commit", "commit-msg", "pre-push"],
+  "attestations": {
+    "sign": true,
+    "store": "git-notes"
+  },
+  "privacy": {
+    "redact": ["secrets", "keys", "access_tokens"],
+    "offline_first": true
+  },
+  "budgets": {
+    "tokens_per_hook": 4000,
+    "daily_tokens": 200000
+  }
+}
+```
+
+# Roadmap
+
+- v0.1: Hook scaffolding, per‑worktree isolation, commit summary/review agents, basic policy
+- v0.2: Signed attestations, redaction helpers, PR description synthesis, CHANGELOG generation
+- v0.3: Test synthesis on risky diffs, inline code suggestions gated by policy
+- v0.4: Multi‑agent playbooks, project‑local vector stores, model adapters
+
+# Compatibility
+
+PupAI is Husky‑compatible by design: it uses Git’s native `core.hooksPath`, works with existing GUIs and Node version managers, and remains opt‑in per hook. You can disable AI entirely and keep PupAI as a thin Husky installer.
+
+Husky reference: <a href="https://typicode.github.io/husky/" target="_blank" rel="noopener noreferrer">docs</a>.
+
+# Closing
+
+Git hooks are already where teams enforce quality. PupAI brings AI directly to those boundaries—fast, parallel, and policy‑aware—so your repo gets smarter without changing your workflow.
+
+References:
+
+- Husky: <a href="https://typicode.github.io/husky/" target="_blank" rel="noopener noreferrer">typicode.github.io/husky</a>
+- Claude Code (parallel sessions): <a href="https://docs.claude.com/en/docs/claude-code/common-workflows#run-parallel-claude-code-sessions-with-git-worktrees" target="_blank" rel="noopener noreferrer">docs.claude.com</a>
+- Claude Code (hooks guide): <a href="https://docs.claude.com/en/docs/claude-code/hooks-guide" target="_blank" rel="noopener noreferrer">docs.claude.com</a>
+
+
