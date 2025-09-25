@@ -1,12 +1,12 @@
 ---
 title: 'If AI Only Wrote Assembly: Rethinking Abstraction From Scratch'
 publishedAt: '2025-03-02'
-summary: 'If we restarted software from zero with AI at the metal, which abstractions would survive—and what should we change today?'
+summary: 'If we restarted software from zero with AI at the metal, which abstractions would survive, and what should we change today?'
 ---
 
 # Introduction
 
-Imagine we deleted every codebase on earth and asked an AI—restricted to producing only assembly—to rebuild our software stack. What would come back? Which abstractions would re‑emerge, which would disappear, and which would look entirely different?
+Imagine we deleted every codebase on earth and asked an AI, restricted to producing only assembly, to rebuild our software stack. What would come back? Which abstractions would re‑emerge, which would disappear, and which would look entirely different?
 
 Humans built layers to optimize for our cognition: readability, portability, team coordination. AI optimizes differently: for verifiability, performance transparency, and search across immense design spaces. This essay explores what an AI‑first stack could look like and, more importantly, the practical lessons we can adopt today: write tighter specs, prefer domain‑specific <a href="https://en.wikipedia.org/wiki/Intermediate_representation" title="Intermediate Representation: a lower-level, compiler-friendly form that code is translated into before machine code" target="_blank" rel="noopener noreferrer">IRs</a> over monolithic languages, make costs visible, and co‑design software with hardware.
 
@@ -31,7 +31,7 @@ But it struggles with:
 - Long‑horizon system design without intermediate feedback
 - Social context: maintainability, governance, team handoffs
 
-This mismatch suggests AI would invent layers that surface precise intent and stable constraints—then freely re‑optimize execution beneath them.
+This mismatch suggests AI would invent layers that surface precise intent and stable constraints, then freely re‑optimize execution beneath them.
 
 # If we had ChatGPT then: what would AI build first?
 
@@ -97,4 +97,4 @@ Expect toolchains that negotiate abstractions per workload: for each deployment,
 
 # Conclusion
 
-If AI only wrote assembly, it would still rebuild abstractions—but around verifiability, cost, and search rather than human ergonomics. We do not need to erase our stack to benefit. Start small: pick one subsystem, write the spec tighter than feels comfortable, separate intent from schedule, make costs visible, and let AI search beneath the glass.
+If AI only wrote assembly, it would still rebuild abstractions, but around verifiability, cost, and search rather than human ergonomics. We do not need to erase our stack to benefit. Start small: pick one subsystem; write the spec tighter than feels comfortable; separate intent from schedule; make costs visible; and let AI search beneath the glass.
