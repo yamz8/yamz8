@@ -1,0 +1,107 @@
+---
+title: 'How People Use ChatGPT: Part 1 — Methodology and Scope'
+publishedAt: '2025-09-25'
+summary: 'A deep dive into the NBER study that tracked ChatGPT adoption from launch to 10% global penetration. What the methodology reveals about AI adoption research and why this study matters.'
+---
+
+# How People Use ChatGPT: Part 1 — Methodology and Scope
+
+The <a href="https://www.nber.org/papers/w34255" target="_blank" rel="noopener noreferrer">NBER Working Paper 34255</a> by Aaron Chatterji and colleagues represents the most comprehensive empirical study of ChatGPT usage patterns to date. Tracking adoption from November 2022 through July 2025, it captures the journey from experimental curiosity to mainstream tool—reaching approximately 10% of the global adult population.
+
+This is the first in a five‑part series examining the study's findings and implications. Today, we focus on methodology: what makes this research unique, how robust the approach is, and what limitations we should keep in mind as we interpret the results.
+
+## Why This Study Matters
+
+Most AI adoption research suffers from three problems: small sample sizes, short time horizons, and self‑reported usage data. This study tackles all three by leveraging OpenAI's actual usage logs across 2.5 years of real‑world deployment.
+
+The timing is crucial. ChatGPT's November 2022 launch marked the first time a capable AI assistant became freely available to anyone with internet access. Previous studies of AI adoption were limited to enterprise deployments, research settings, or narrow use cases. This study captures the first mass‑market AI adoption wave as it happened.
+
+## Data Sources and Scale
+
+The researchers accessed anonymized usage logs from OpenAI, covering billions of interactions across millions of users. The dataset includes:
+
+- Message content and conversation threads
+- User demographics and geographic distribution  
+- Temporal usage patterns and session characteristics
+- Work vs. personal usage classification
+- Tool and feature adoption rates
+
+This represents an unprecedented view into how people actually use AI in practice, not how they think they use it or how researchers expect them to use it.
+
+## Methodological Strengths
+
+**Real behavioral data**: Unlike surveys or interviews, this study analyzes actual usage patterns. When users say they use ChatGPT "for work," the data shows exactly what that means in practice.
+
+**Longitudinal perspective**: The 2.5‑year window captures both the initial adoption surge and the settling into stable usage patterns. This matters because early adopter behavior often differs dramatically from mainstream usage.
+
+**Global scope**: The dataset spans countries with different economic conditions, languages, and technological infrastructure. This allows analysis of how adoption patterns vary across contexts.
+
+**Classification at scale**: The team developed taxonomies for conversation topics and work vs. personal usage that could be applied consistently across billions of messages. This standardization enables meaningful statistical analysis.
+
+## The Classification Challenge
+
+One of the study's most impressive technical achievements is the development of reliable classification systems for conversation content. The researchers had to solve several problems:
+
+**Topic categorization**: How do you classify "help me write an email to my boss about taking time off" vs. "write a creative story about a time‑traveling email"? The team developed hierarchical categories that capture both functional intent and content domain.
+
+**Work vs. personal distinction**: This binary seems simple but proves complex in practice. Is "help me understand blockchain for my startup idea" work or personal? The classification system had to account for context, timing, and user patterns.
+
+**Quality control**: With billions of messages, manual verification is impossible. The team used statistical sampling and inter‑rater reliability checks to validate their automated classification systems.
+
+## Limitations and Caveats
+
+Every methodology has constraints, and this study is transparent about theirs:
+
+**Platform specificity**: This is a study of ChatGPT users, not AI users generally. Usage patterns might differ significantly on other platforms with different interfaces, capabilities, or user bases.
+
+**Self‑selection bias**: People who choose to use ChatGPT may systematically differ from the general population in ways that affect how they use AI tools.
+
+**Privacy and content filtering**: The researchers couldn't access all conversations due to privacy protections and content policies. This might skew the dataset toward certain types of usage.
+
+**Geographic and linguistic bias**: Despite global reach, the dataset likely over‑represents English speakers and users in countries with robust internet infrastructure.
+
+**Temporal effects**: The study period includes ChatGPT's rapid capability improvements. Usage patterns observed in 2023 might reflect different capabilities than those from 2025.
+
+## What the Methodology Enables
+
+This approach allows the researchers to answer questions that previous studies couldn't:
+
+- How do usage patterns evolve as users become more experienced?
+- What drives the shift from experimentation to routine usage?
+- How do demographic factors influence AI adoption and usage patterns?
+- Which features and capabilities actually matter to users in practice?
+
+## Comparison to Other Technology Adoption Studies
+
+The methodology parallels classic technology adoption research but with important differences. Studies of social media adoption, smartphone usage, or internet penetration typically rely on surveys, app analytics, or network data. This study combines the behavioral precision of app analytics with the content richness typically only available through qualitative research.
+
+The scale also matters. Most technology adoption studies track thousands or tens of thousands of users. This study tracks millions, enabling analysis of rare behaviors and subtle demographic effects that smaller studies would miss.
+
+## Research Ethics and Privacy
+
+The paper addresses privacy and consent considerations, noting that all data was anonymized and aggregated before analysis. However, this raises interesting questions about the ethics of large‑scale behavioral research using commercial platform data.
+
+The researchers had to balance scientific value against privacy protection, leading to some methodological constraints that likely improve user privacy but may limit research insights.
+
+## What This Means for AI Research
+
+This study establishes a new standard for AI adoption research. Future studies will need to justify why smaller samples, shorter timeframes, or self‑reported data are sufficient for their research questions.
+
+The methodology also demonstrates the value of industry‑academic partnerships. OpenAI's data access enabled research that would be impossible through traditional academic channels, while academic rigor ensured scientific standards.
+
+## Looking Ahead
+
+Understanding the methodology is crucial for interpreting the findings we'll explore in the remaining posts. The study's strengths—scale, behavioral data, longitudinal perspective—make its insights particularly valuable. Its limitations—platform specificity, selection bias, privacy constraints—remind us to interpret results within appropriate bounds.
+
+In Part 2, we'll examine what the data reveals about global adoption patterns and demographic trends. The methodology we've explored today makes those findings possible, but also shapes how we should understand them.
+
+## Next in the Series
+
+- **Part 2**: Global adoption trends and demographic patterns
+- **Part 3**: The evolution of usage patterns over time  
+- **Part 4**: What people actually talk about with AI
+- **Part 5**: Economic implications and future directions
+
+---
+
+*This post is part of a five‑part series analyzing "How People Use ChatGPT" (NBER Working Paper 34255). The complete outline and analysis framework is available in my [research notes](https://github.com/yamz8/blog).*
