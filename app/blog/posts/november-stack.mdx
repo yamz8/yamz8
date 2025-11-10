@@ -1,0 +1,37 @@
+---
+title: 'November Stack'
+publishedAt: '2025-11-08'
+summary: 'A collection of cool projects I came across that caught my attention and sparked inspiration.'
+---
+
+# November Stack
+
+I find myself constantly talking with friends about cool projects I come across. We discuss what we liked, what we didn't, what caught our attention, and what sparked inspiration. It's become a regular part of how I engage with the developer community.
+
+At the same time, I consistently add cool repositories to my GitHub stars list. Over time, this has grown into a massive collection that's become pretty hard to keep organized. I do use GitHub collections to help categorize things, but even with that structure, it's still challenging to maintain a clear mental map of all the interesting projects I've discovered.
+
+That's why I want to start this post-style series to organize my thoughts around the cool projects I encounter. These posts will serve as a way to reflect on what I've found, document what makes each project interesting, and create a more structured way to engage with the tools and ideas that catch my attention.
+
+- [Vercel AI Chatbot](https://github.com/vercel/ai-chatbot)
+I still remember the early days of this repo, back when Vercel hadn't yet realized that their server actions weren't the right fit for the AI stack. I've always had a soft spot for it, watching it evolve from a simple, slightly clunky experiment into a project that somehow reached 20k stars. But ever since [jeremyphilemon](https://github.com/jeremyphilemon) stopped maintaining it, it feels like it's lost some of its taste. Still, I'm not giving up on it. This repo remains one of the best examples of how open-source AI projects can thrive when they keep things simple and resist the urge to pile on features. They definitely missed a great opportunity by not integrating MCP support early on, and I really hope that's still on the horizon. It's not that adding MCP would be hard here, but some of their architectural decisions could've been shaped around it from the start. There are some cool forks worth checking out: [Sparka](https://github.com/franciscomoretti/sparka) and [Better Chatbot](https://github.com/cgoinglove/better-chatbot).
+
+- [Open Agent Builder](https://github.com/firecrawl/open-agent-builder)
+One of the red flags I've always had with tools like n8n is the split between their open-source and enterprise hosting models. It's hard to fully trust that the community version won't eventually become just a funnel to push users toward the paid one. This agent builder is super light, which I really like. It's not dockerized like n8n or similar frameworks, but that simplicity is part of its charm. It feels like a great starting point for anyone who wants flexibility without getting locked into the heavy, closed-off feel of larger projects. Overall, I really like what Firecrawl is building. They've set a kind of gold standard for how AI st
+
+- [Langflow](https://github.com/langflow-ai/langflow)
+Even with its rough edges compared to Flowise or n8n, Langflow still feels like the most genuinely open-source option out there. It's MIT licensed, local first, and has built one of the largest and most active communities in this space, with over 138k stars and counting. While others lean toward cloud lock-ins or open-core models, Langflow keeps things simple and transparent. It's not perfect, but it carries that real open-source spirit that's getting harder to find.
+
+- [Generative AI Application Builder on AWS](https://github.com/aws-solutions/generative-ai-application-builder-on-aws)
+Yes, yes, I also suffer from the classic cloud vendor lock-in problem when it comes to multi-agent architectures. But still, AWS has kept this project in their official docs for quite a while, and it's clear they maintain it with extra care. The Generative AI Application Builder on AWS is a solid starting point if you need a more cloud-heavy setup or want tighter control over your infrastructure.
+
+- [Terraform Google Enterprise Application](https://github.com/GoogleCloudPlatform/terraform-google-enterprise-application)
+Moving from AWS to GCP now. I've become pretty obsessed with the idea of internal developer platforms. I see them as one of those unspoken paradigms that make real vibe coding possible in production, especially in compliance-sensitive environments. In my search for something that fits my uncompromising approach to simplicity, especially in areas developers love to overcomplicate, I found this GCP enterprise application solution surprisingly refreshing. It doesn't push you to open endless third-party accounts, and while it might not look simple at first glance, I think Google is onto something cool here compared to other options I've seen.
+
+- [v0 SDK](https://github.com/vercel/v0-sdk)
+I think this is one of the most promising ones. I'm a big fan of v0, especially compared to other builders like Lovable and similar tools. I think it comes from the fact that Vercel trains their agent on something they truly understand at a deep, low level. They have both the infrastructure and the framework, which makes it feel like a natural extension of their ecosystem. This SDK (still in beta) shows how they're approaching v0 as a model solution. With one click, you can deploy your own version and use their cloud. For me, learning from Vercel is always inspiring, they're one of those rare companies that truly understand how to blend product, design, and engineering. It's the kind of foundation that shows how AI products should be built, connecting models, agents, sandboxes, and frameworks in a way that makes the details actually matter. Other cool projects from Vercel worth checking out: [Coding Agent Template](https://github.com/vercel-labs/coding-agent-template) and [Lead Agent](https://github.com/vercel-labs/lead-agent).
+
+- [OpenCode](https://github.com/sst/opencode)
+Let's go TUI, let's go! I'm all in on the deep agent approach (cloud code, Codex, etc.) over the overcomplicated multi-agent frameworks, and I'll go over why in a future post, but for now, an open-source player that isn't vendor locked is necessary. OpenCode has the right taste, and I hope it will keep up with the other players from the big companies.
+
+- [Langfuse](https://github.com/langfuse/langfuse)
+Part of developing AI products over time is realizing that being obsessed with evals matters more than chasing everything else that keeps changing. I've always felt the need to have full control over my evaluation framework, and Langfuse turned out to have one of the best architectures and self-hosting setups I've seen. 
